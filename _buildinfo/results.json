@@ -1,0 +1,43 @@
+{
+  "build_time": "2019-09-27 12:19:55",
+  "checksum": "4313e635294feef97f68b0a918b5bc03",
+  "checksum_old": "4313e635294feef97f68b0a918b5bc03",
+  "checksum_time": 1569586726,
+  "checksum_time_decoded": "2019-09-27 12:18",
+  "checksum_ttl_seconds": 604800,
+  "copyright": "since 2000 by TYPO3 Association",
+  "created": {
+    "html": 1
+  },
+  "description": "This document explains how to contribute code to the TYPO3 project.",
+  "email_notify_about_new_build": [],
+  "emails_user_from_project": [],
+  "environ": {
+    "OUR_IMAGE": "t3docs/render-documentation:v2.3.0",
+    "OUR_IMAGE_SHORT": "t3rd",
+    "OUR_IMAGE_VERSION": "v2.3.0",
+    "THEME_MTIME": "1530870718",
+    "THEME_VERSION": "3.6.16",
+    "TOOLCHAIN_VERSION": "2.7.1",
+    "TYPOSCRIPT_PY_VERSION": "v2.2.4"
+  },
+  "gitdir": "/PROJECT",
+  "has_neutralized_images": 0,
+  "has_neutralized_links": 0,
+  "known_versions": {
+    "t3SphinxThemeRtd.VERSION": [
+      3,
+      6,
+      16
+    ],
+    "t3SphinxThemeRtd.__version__": "3.6.16"
+  },
+  "localization": "default",
+  "postprocessed_html_files": 0,
+  "project": "TYPO3 Contribution Guide - Core Development",
+  "publish_dir": "project/0.0.0",
+  "sitemap_files_html_count": 66,
+  "t3author": "TYPO3 Core Team, TYPO3 Documentation Team, TYPO3 Community",
+  "ter_extension": "0",
+  "version": "1.0"
+}

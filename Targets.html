@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="book-name"    content="TYPO3 Contribution Guide - Core Development"/>
+  <meta name="book-version" content="1.0"/>
+  <meta name="book-release" content=""/>
+  <meta name="book-type"    content="Manual"/>
+
+  
+  <title>Linktargets &mdash; TYPO3 Contribution Guide - Core Development  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/jquery-ui/jquery-ui.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/t3more.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="TYPO3 Contribution Guide - Core Development  documentation" href="#"/> 
+  <script src="_static/js/modernizr.min.js"></script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        <ul class="sidebartop">
+
+          <li class="docsite">
+            <a href="https://docs.typo3.org"><img src="_static/img/typo3-documentation.png" class="logo" /></a>
+          </li><li class="project">
+            <a href="Index.html">
+              TYPO3 Contribution Guide - Core Development<br>1.0</a>
+          </li>
+          <li class="nolink search"><div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search this project" id="searchinput" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+</li></ul>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="About.html">About This Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="About.html#how-this-guide-is-structured">How this guide is structured</a></li>
+<li class="toctree-l2"><a class="reference internal" href="About.html#what-s-new-in-this-guide">What’s New in This Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="About.html#other-ways-to-contribute">Other ways to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="About.html#contribute-to-this-guide">Contribute to this Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Community/Index.html">Help &amp; Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Community/Index.html#id1">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Community/Index.html#events">Events</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Community/Index.html#typo3-gmbh-review-friday">TYPO3 GmbH Review Friday</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Community/Index.html#code-sprints">Code Sprints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Community/Index.html#typo3-developer-days">TYPO3 Developer Days</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="WorkflowExplained/Index.html">TYPO3 Contribution Explained</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="WorkflowExplained/Index.html#regular-workflow">Regular Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WorkflowExplained/Index.html#typo3-contribution-workflow">TYPO3 Contribution Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Forger/Index.html">Introduction to Forger</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SETUP</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Account/Index.html">Setting up Your Accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Account/TYPO3Account.html">Signup for a TYPO3.org Account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account/GerritAccount.html">Setting up Gerrit (ssh)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Account/Slack.html">Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Account/Slack.html#register-for-slack-account">Register for Slack account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Account/Slack.html#join-typo3-cms-coredev-channel">Join #typo3-cms-coredev channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Account/Slack.html#more-information">More information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Setup/Prerequisites.html">Prerequisites and Useful Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Prerequisites.html#composer">Composer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Prerequisites.html#setting-up-your-frontend-build-toolchain">Setting up Your Frontend Build Toolchain.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Setup/Prerequisites.html#yarn">Yarn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Setup/Prerequisites.html#install-on-macos">Install on MacOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setup/Prerequisites.html#installer-for-windows-and-macos">Installer for Windows and MacOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setup/Prerequisites.html#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Setup/Prerequisites.html#install-all-required-packages">Install all Required Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Prerequisites.html#grunt">Grunt</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Setup/SetupTypo3.html">Setup the TYPO3 installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupTypo3.html#git-clone">git clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupTypo3.html#git-guis">Git GUIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupTypo3.html#composer-install">composer install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupTypo3.html#yarn-install">yarn install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Setup/SetupTypo3.html#yarn-tasks">yarn tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupTypo3.html#setting-up-a-working-typo3-installation">Setting up a Working TYPO3 Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Setup/Git/Index.html">Git Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#set-username-and-email">Set Username and Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#set-autosetuprebase">Set autosetuprebase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#install-your-commit-hooks">Install Your Commit Hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Setup/Git/Index.html#commit-msg-hook">commit-msg Hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setup/Git/Index.html#pre-commit-hook">pre-commit Hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Setup/Git/Index.html#alternative-setup-with-composer">Alternative: Setup With Composer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#setting-up-your-remote">Setting up Your Remote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#setting-up-a-commit-message-template">Setting up a Commit Message Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#show-configuration">Show Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Setup/Git/Index.html#other-resources">Other resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Setup/SetupIde.html">Setup your IDE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Setup/SetupIde.html#coding-guidelines">Coding Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">HOWTOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ReportingAnIssue/Index.html">Report an Issue</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#introduction-to-forge">Introduction to Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#searching-for-existing-issues">Searching for Existing Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#identify-the-issue">Identify the Issue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#create-an-issue">Create an issue</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#tracker">Tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#subject">Subject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#category">Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#typo3-version">TYPO3 version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#php-version">PHP Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#optional-files">(optional) Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#best-practices-for-writing-a-good-bug-report">Best practices for writing a good bug report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#hints-for-formatting-in-redmine">Hints for formatting in Redmine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#images">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#code-formatting">Code formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ReportingAnIssue/Index.html#external-links">External Links</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ReportingAnIssue/Index.html#additional-resources">Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BugfixingAZ/Index.html">Create a Patch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="BugfixingAZ/Index.html#step-by-step-walkthrough">Step by Step Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BugfixingAZ/Index.html#helpful-links">Helpful links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BugfixingAZ/Index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AddingDocumentation/Index.html">Add Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="AddingDocumentation/Index.html#changelog">Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="AddingDocumentation/Index.html#rest-file-generator">reST File Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingDocumentation/Index.html#types-of-changes">Types of Changes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="AddingDocumentation/Index.html#breaking-changes">Breaking Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AddingDocumentation/Index.html#deprecations">Deprecations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AddingDocumentation/Index.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="AddingDocumentation/Index.html#important-information">Important Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AddingDocumentation/Index.html#check-your-rst-file">Check Your <code class="code docutils literal notranslate"><span class="pre">rst</span></code> File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddingDocumentation/Index.html#render-the-changelog">Render the Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="AddingDocumentation/Index.html#document-system-extensions">Document System Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AddingDocumentation/Index.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Testing/Index.html">Run Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Testing/Index.html#practical-considerations">Practical Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testing/Index.html#how-to-run-the-tests">How to Run the Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testing/Index.html#run-tests-with-runtests-sh-using-docker">Run Tests with runTests.sh using docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#show-help">Show help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-all-unit-tests">Run all unit tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-unit-tests-with-xdebug-uses-default-port-9000">Run unit tests with xdebug (uses default port 9000)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-specific-unit-tests-with-xdebug">Run specific unit tests with xdebug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-functional-tests">Run functional tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-functional-tests-with-postgresql">Run functional tests with PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Testing/Index.html#run-acceptance-tests">Run acceptance tests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#additional-hints">Additional hints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#results">Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Testing/Index.html#run-tests-directly-without-docker">Run tests directly without docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#id1">Run all unit tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#run-specific-unit-tests">Run specific unit tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#run-all-functional-tests">Run all functional tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing/Index.html#check-for-coding-guidelines">Check for Coding Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Testing/Index.html#more-information">More information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DebuggingTypo3/Index.html">Debug TYPO3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DebuggingTypo3/Index.html#debugging-with-phpstorm-and-xdebug">Debugging With PhpStorm and Xdebug</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DebuggingTypo3/Index.html#php-ini">php.ini</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DebuggingTypo3/Index.html#install-plugin">Install Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="DebuggingTypo3/Index.html#phpstorm">PhpStorm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DebuggingTypo3/Index.html#more-information">More Information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HandlingAPatch/Index.html">Handle and Improve a Patch (Gerrit)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/GerritBasics.html">Introduction to Gerrit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/GerritBasics.html#overview-of-the-ui">Overview of the UI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/FindAReview.html">Find a review on Gerrit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#id1">Forger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#email-notification">Email notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#gerrit-your-changes">Gerrit: Your Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#gerrit-open-changes">Gerrit: Open Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#gerrit-search">Gerrit: Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/FindAReview.html#id2">Forge</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/CherryPick.html">Cherry-pick a patch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/CleanupTypo3.html">Cleanup tasks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/CleanupTypo3.html#cleanup-git-repository">Cleanup git repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/CleanupTypo3.html#cleanup-typo3-installation">Cleanup TYPO3 installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/ChangeAPatch.html">Upload a new Patch Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/Rebase.html">Rebase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Rebase.html#what-is-rebase">What is rebase?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Rebase.html#when-should-you-rebase">When should you rebase?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Rebase.html#how-do-you-rebase">How do you rebase?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/Rebase.html#method-1-use-rebase-button-on-gerrit">Method 1: Use Rebase button on Gerrit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/Rebase.html#method-2-git-pull-rebase">Method 2: git pull –rebase</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html">Resolve Merge conflicts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#what-are-merge-conflicts">What are merge conflicts?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#how-to-see-merge-conflicts-in-gerrit-or-forger">How to see merge conflicts in Gerrit or Forger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#how-to-resolve-conflicts">How to resolve conflicts?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#identify-files-with-conflicts">Identify files with conflicts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#identify-files-with-conflicts-cherry-pick">Identify files with conflicts (cherry-pick)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#resolve-the-conflicts">Resolve the conflicts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#resume-command">Resume command</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#resume-git-rebase">Resume git rebase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#resume-git-cherry-pick">Resume git cherry-pick</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/Review.html">Review a patch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Review.html#code-review">Code Review</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Review.html#test-a-patch">Test a patch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Review.html#comment-files">Comment files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Review.html#vote">Vote</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/Review.html#policy-for-votes">Policy for votes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/Review.html#low-brainers">Low brainers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="HandlingAPatch/Review.html#practical-considerations">Practical considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/Backporting.html">Backport a change to other branches</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Backporting.html#use-gerrit-for-the-cherry-pick">Use Gerrit for the cherry-pick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="HandlingAPatch/Backporting.html#manual-backport">Manual backport</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingAPatch/Revert.html">Revert patches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="HandlingIssues/TicketWorkflow.html">Issue Workflow (Forge)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="HandlingIssues/TicketWorkflow.html#target-versions">Target Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HandlingIssues/TicketWorkflow.html#status">Status</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CheatSheets/Git.html">Git Cheat Sheet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#git-clone">git clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#workflow-common-commands">Workflow - common commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#workflow-work-in-progress">Workflow - work in progress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#workflow-other-branches">Workflow -other branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#workflow-commit-msg">Workflow - commit msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#workflow-undoing-fixing-things">Workflow - Undoing / fixing things</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CheatSheets/Git.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting/Index.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Troubleshooting/Index.html#git-troubleshooting">Git Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#permission-denied">Permission Denied</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#debugging-the-ssh-connection">Debugging the SSH Connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#push-invalid-committer">Push: invalid committer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#you-are-not-a-committer">You are not a committer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#missing-change-id-in-commit-message">Missing Change-Id in commit message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#push-prohibited-by-gerrit">Push: prohibited by gerrit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Troubleshooting/Index.html#pushing-old-patch-set-again">Pushing old Patch Set again</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix/Index.html">Appendix</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/OSX/Index.html">OS X help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/OSX/GitTower.html">Working with Git Tower</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/OSX/GitTower.html#enabling-extended-gerrit-support-in-tower">Enabling Extended Gerrit Support in Tower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/OSX/GitTower.html#pushing-to-gerrit">Pushing to Gerrit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/OSX/InstallComposer.html">COMPOSER install on OSX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/OSX/InstallGrunt.html">GRUNT install on OSX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/OSX/InstallNpm.html">Yarn install on OSX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/OSX/SSHKeyOSX.html">Creating a SSH Public Key on OSX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Windows/Index.html">Microsoft Windows help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html">Cloning with SourceTree on Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#sourcetree-general-setup">SourceTree General Setup</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#installation">Installation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#basic-settings">Basic Settings</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#clone">Clone</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#automatic-links-to-forge-and-gerrit">Automatic links to Forge and Gerrit</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#reviewing-and-testing-patches">Reviewing and testing patches</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#update-the-repository">Update the repository</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#cherry-picking">Cherry-picking</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#creating-patches">Creating patches</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#commit-hook">Commit hook</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#setup-for-pushing-to-gerrit">Setup for pushing to Gerrit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#create-a-branch">Create a branch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#send-the-patch-to-gerrit">Send the patch to Gerrit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/CloneWithSourcetree.html#cleaning-up">Cleaning up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Windows/GitForWindows.html">Working with Git for Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#configuration">Configuration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#initial-clone">Initial clone</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#setting-the-ssh-key-in-tortoisegit">Setting the SSH key in TortoiseGit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#commit-hook">Commit hook</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#push-to-gerrit">Push to Gerrit</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#links-to-bugtracker">Links to bugtracker</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#review-walkthrough">Review walkthrough</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#update-the-repository">Update the repository</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#create-a-branch">Create a branch</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#cherry-picking">Cherry-picking</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#cleaning-up">Cleaning up</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#starting-a-new-patch">Starting a new patch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/GitForWindows.html#send-the-patch-to-gerrit">Send the patch to Gerrit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Windows/SSHKeyWindows.html">Creating a SSH Public Key on Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/SSHKeyWindows.html#generate-your-keys-with-putty">Generate Your Keys With Putty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/SSHKeyWindows.html#use-pageant-to-load-your-pivate-key-on-startup">Use Pageant to Load Your Pivate Key on Startup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Windows/Troubleshooting.html">Troubleshooting for Windows</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Windows/Troubleshooting.html#ssh">SSH</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Windows/Troubleshooting.html#permission-denied-publickey">Permission denied (publickey)</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="Appendix/Windows/Troubleshooting.html#checklist-for-ssh-problems">Checklist for ssh problems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Linux/Index.html">Linux/Unix help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Linux/SSHKeyUnix.html">Creating a SSH Public Key on Unix/Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html">Setting up TYPO3 manually under Linux</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#setup">Setup</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#apache-webserver">Apache Webserver</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#php-7-2">PHP 7.2</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#mysql-server">MySQL Server</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#imagemagick">ImageMagick</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#create-a-basic-site-for-your-installation">Create a basic site for your installation</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#create-a-domain-in-your-etc-hosts">Create a domain in your /etc/hosts</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#next-step">Next step</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Aliases.html">Aliases &amp; Git Aliases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Aliases.html#id1">Aliases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#sample-list-of-aliases">Sample List of Aliases</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Aliases.html#git-aliases">Git Aliases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#sample-git-aliases-commands">Sample Git Aliases (Commands)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#sample-git-aliases-gitconfig">Sample Git Aliases (.gitconfig)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Aliases.html#additional-information">Additional Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Aliases.html#macos">MacOS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Cgl.html">Coding Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Cgl.html#php">PHP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Cgl.html#javascript">JavaScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Cgl.html#typescript">TypeScript</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Cgl.html#xliff-files">Xliff files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/CglFixMyCommit.html">cglFixMyCommit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CglFixMyCommit.html#linux-and-macos">Linux and MacOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CglFixMyCommit.html#windows">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/CommitHook.html">Commit Hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitHook.html#commit-msg-hook"><code class="code docutils literal notranslate"><span class="pre">commit-msg</span></code> Hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitHook.html#pre-commit-hook"><code class="code docutils literal notranslate"><span class="pre">pre-commit</span></code> Hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitHook.html#post-checkout-hook-for-composer-install">Post-checkout hook for composer install</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/CommitMessage.html">Commit Message rules for TYPO3 CMS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitMessage.html#summary-line-first-line">Summary line (first line)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/CommitMessage.html#deprecations">Deprecations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/CommitMessage.html#some-examples-of-topic-descriptions">Some examples of topic descriptions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitMessage.html#description-message-body">Description (Message body)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/CommitMessage.html#relationships">Relationships</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitMessage.html#reverting-patches">Reverting patches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitMessage.html#commit-template">Commit Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/CommitMessage.html#bad-summary-lines-examples-vs-good-examples">Bad summary lines examples vs. good examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Composer.html">Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Composer.html#about-composer">About Composer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Composer.html#install-composer">Install Composer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Composer.html#composer-commands">Composer Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Composer.html#custom-typo3-composer-commands">Custom TYPO3 Composer Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/HowToDeprecateThings.html">How to deprecate classes, methods, arguments and hooks in the TYPO3 core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/HowToDeprecateThings.html#deprecate-a-class">Deprecate a class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/HowToDeprecateThings.html#deprecate-method">Deprecate method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/HowToDeprecateThings.html#deprecate-method-arguments">Deprecate method arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/HowToDeprecateThings.html#deprecate-a-hook">Deprecate a hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/HowToDeprecateThings.html#deprecate-methods-still-called-by-the-typo3-core">Deprecate methods still called by the TYPO3 Core</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/IdePhpStormGerritPlugin.html">PhpStorm: Gerrit Plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/IdePhpStormSetup.html">PhpStorm: Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#conventions-on-this-page">Conventions on this page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#general-setup">General setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#coding-guidelines">Coding Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#editorconfig">EditorConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#php-files">PHP files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#more-information">More information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#plugins-for-phpstorm">Plugins for PhpStorm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#install-plugins-in-phpstorm">Install plugins in PhpStorm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#recommended-plugins">Recommended Plugins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#optional-plugins">Optional Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#setting-up-phpstorm-for-the-testing-framework">Setting up  PhpStorm for the Testing Framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/IdePhpStormSetup.html#other-resources">Other Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html">Setting up TYPO3 with DDEV</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#setting-up-the-prerequisites">Setting up the prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#clone-typo3">Clone TYPO3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#configure-ddev">Configure DDEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#start-ddev">Start DDEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#install-dependencies-via-composer">Install dependencies via composer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#check-for-database-credentials">Check for database credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#first-install">FIRST_INSTALL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#setup-your-typo3-installation">Setup your TYPO3 installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#additional-setup">Additional setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#shutdown-ddev">Shutdown DDEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#resources">Resources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#slack-channels">Slack channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/SettingUpTypo3Ddev.html#ddev-documentation">DDEV documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html">Setting up TYPO3 manually</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html#clone-typo3">Clone TYPO3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html#create-the-database">Create the database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html#create-first-install">Create FIRST_INSTALL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/SettingUpTypo3Manually.html#continue">Continue …</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Slack.html">Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/Slack.html#slack-channels">Slack channels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/Slack.html#botty-on-slack">Botty on Slack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html">Information for editing this guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#general-information">General information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#resources-for-this-guide">Resources for this guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#best-practices-for-editing-this-guide">Best practices for editing this guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#images">Images</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#hints-for-creating-images">Hints for creating images</a></li>
+<li class="toctree-l5"><a class="reference internal" href="Appendix/ResourcesForEditors/Index.html#hints-for-adding-images">Hints for adding images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Sitemap/Index.html">Sitemap</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="Index.html">TYPO3 Contribution Guide - Core Development</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="Index.html">Docs</a> &raquo;</li>
+    <li>Linktargets</li>
+      <li class="wy-breadcrumbs-aside">
+                <a id="EditMeOnGitHub" href="https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-ContributionWorkflow/edit/master/Documentation/Targets.rst" target="_blank" class="fa fa-github"> Edit me on GitHub</a>
+      </li>
+  </ul>
+  
+  <hr class="clear-both"/>
+
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody" class="toBeIndexed">
+            
+  <div class="section" id="linktargets">
+<span id="id1"></span><h1>Linktargets<a class="headerlink" href="#linktargets" title="Permalink to this headline">¶</a></h1>
+<p>This page is only relevant for documentation contributors editing or linking
+to this manual.</p>
+<p>This section <a class="reference internal" href="#targets-for-cross-referencing"><span class="std std-ref">Labels for Cross-Referencing</span></a> lists all the
+link targets in this manual. The link targets can be used for
+linking from this manual or from other manuals.</p>
+<div class="section" id="how-to-link-with-intersphinx-mechanism">
+<h2>How to Link With Intersphinx Mechanism<a class="headerlink" href="#how-to-link-with-intersphinx-mechanism" title="Permalink to this headline">¶</a></h2>
+<p>If you place a <code class="code docutils literal notranslate"><span class="pre">..</span> <span class="pre">_This-is-ABC:</span></code> in front of a headline,
+you are defining a linktarget that you can later link to
+(from the same manual):</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="o">:</span><span class="nx">ref</span><span class="o">:</span><span class="sb">`This-is-ABC`</span>
+</pre></div>
+</div>
+<p>If you link from another manual, you need to prepend the
+shortcut for this manual, e.g. <code class="code docutils literal notranslate"><span class="pre">t3contribute</span></code>:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="o">:</span><span class="nx">ref</span><span class="o">:</span><span class="sb">`t3contribute:This-is-ABC`</span>
+</pre></div>
+</div>
+<p>For this to work, you must define the intersphinx shortcut
+in the file <a class="reference external" href="https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/GeneralConventions/DirectoryFilenames.html#settings-cfg" title="(in Writing Documentation v0.0)"><span class="xref std std-ref">Settings.cfg</span></a>
+in the manual you are linking from, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[intersphinx_mapping]
+
+t3contribute     = https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/
+</pre></div>
+</div>
+<p>More information: <a class="reference external" href="https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/Hyperlinks.html#intersphinx" title="(in Writing Documentation v0.0)"><span class="xref std std-ref">About Intersphinx</span></a> and <a class="reference external" href="https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingReST/CheatSheet.html#cheat-sheet-intersphinx" title="(in Writing Documentation v0.0)"><span>Cross-References</span></a>
+in “ReST &amp; Sphinx Cheat Sheet”.</p>
+</div>
+<div class="section" id="labels-for-cross-referencing">
+<span id="targets-for-cross-referencing"></span><h2>Labels for Cross-Referencing<a class="headerlink" href="#labels-for-cross-referencing" title="Permalink to this headline">¶</a></h2>
+<dl class="ref-targets-list docutils">
+<dt>About</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/About.txt?refid=about&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="About.html#about" title="About This Guide">:ref:`about`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/About.txt?refid=other-resources-for-contribution&amp;line=68">0068</a><span class="e3">] </span><a class="e4 reference internal" href="About.html#other-resources-for-contribution" title="Other ways to contribute">:ref:`other-resources-for-contribution`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/About.txt?refid=contribute&amp;line=80">0080</a><span class="e3">] </span><a class="e4 reference internal" href="About.html#contribute" title="Contribute to this Guide">:ref:`contribute`</a></li>
+</ul>
+</dd>
+<dt>Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Index.txt?refid=start&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Index.html#start" title="TYPO3 Contribution Guide - Core Development">:ref:`start`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Index.txt?refid=overview&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Index.html#overview" title="TYPO3 Contribution Guide - Core Development">:ref:`overview`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Index.txt?refid=intended-audience&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Index.html#intended-audience" title="TYPO3 Contribution Guide - Core Development">:ref:`intended-audience`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Index.txt?refid=recommended-reading&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="Index.html#recommended-reading" title="TYPO3 Contribution Guide - Core Development">:ref:`recommended-reading`</a></li>
+</ul>
+</dd>
+<dt>Targets</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Targets.txt?refid=linktargets&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Targets.html#linktargets" title="Linktargets">:ref:`linktargets`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Targets.txt?refid=targets-for-cross-referencing&amp;line=70">0070</a><span class="e3">] </span><a class="e4 reference internal" href="Targets.html#targets-for-cross-referencing" title="Labels for Cross-Referencing">:ref:`targets-for-cross-referencing`</a></li>
+</ul>
+</dd>
+<dt>Account/GerritAccount</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/GerritAccount.txt?refid=gerritaccount&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Account/GerritAccount.html#gerritaccount" title="Setting up Gerrit (ssh)">:ref:`gerritaccount`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/GerritAccount.txt?refid=gerrit-ssh&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="Account/GerritAccount.html#gerrit-ssh" title="Setting up Gerrit (ssh)">:ref:`gerrit-ssh`</a></li>
+</ul>
+</dd>
+<dt>Account/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/Index.txt?refid=typo3-guide-contributionworkflow-account&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Account/Index.html#typo3-guide-contributionworkflow-account" title="Setting up Your Accounts">:ref:`typo3-guide-contributionworkflow-account`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/Index.txt?refid=setting-up-your-account&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Account/Index.html#setting-up-your-account" title="Setting up Your Accounts">:ref:`setting-up-your-account`</a></li>
+</ul>
+</dd>
+<dt>Account/Slack</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/Slack.txt?refid=slack-account&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Account/Slack.html#slack-account" title="Slack">:ref:`slack-account`</a></li>
+</ul>
+</dd>
+<dt>Account/TYPO3Account</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Account/TYPO3Account.txt?refid=typo3account&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Account/TYPO3Account.html#typo3account" title="Signup for a TYPO3.org Account">:ref:`typo3account`</a></li>
+</ul>
+</dd>
+<dt>AddingDocumentation/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=bugfixing-adding-documentation&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#bugfixing-adding-documentation" title="Add Documentation">:ref:`bugfixing-adding-documentation`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=adding-documentation&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#adding-documentation" title="Add Documentation">:ref:`adding-documentation`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=changelog&amp;line=49">0049</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#changelog" title="Changelog">:ref:`changelog`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=documenting-changelog-breaking-changes&amp;line=94">0094</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#documenting-changelog-breaking-changes" title="Breaking Changes">:ref:`documenting-changelog-breaking-changes`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=documenting-changelog-deprecations&amp;line=115">0115</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#documenting-changelog-deprecations" title="Deprecations">:ref:`documenting-changelog-deprecations`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=documenting-changelog-features&amp;line=136">0136</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#documenting-changelog-features" title="Features">:ref:`documenting-changelog-features`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=documenting-changelog-important-information&amp;line=150">0150</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#documenting-changelog-important-information" title="Important Information">:ref:`documenting-changelog-important-information`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=changelog-check-rst&amp;line=160">0160</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#changelog-check-rst" title="Check Your rst File">:ref:`changelog-check-rst`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=render-the-changelog&amp;line=184">0184</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#render-the-changelog" title="Render the Changelog">:ref:`render-the-changelog`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/AddingDocumentation/Index.txt?refid=documenting-system-extensions&amp;line=232">0232</a><span class="e3">] </span><a class="e4 reference internal" href="AddingDocumentation/Index.html#documenting-system-extensions" title="Document System Extensions">:ref:`documenting-system-extensions`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Aliases</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Aliases.txt?refid=aliases&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Aliases.html#aliases" title="Aliases &amp; Git Aliases">:ref:`aliases`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Aliases.txt?refid=git-aliases&amp;line=131">0131</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Aliases.html#git-aliases" title="Git Aliases">:ref:`git-aliases`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Cgl</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Cgl.txt?refid=appendix-cgl&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Cgl.html#appendix-cgl" title="Coding Guidelines">:ref:`appendix-cgl`</a></li>
+</ul>
+</dd>
+<dt>Appendix/CglFixMyCommit</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CglFixMyCommit.txt?refid=cgl-fix-my-commit&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CglFixMyCommit.html#cgl-fix-my-commit" title="cglFixMyCommit">:ref:`cgl-fix-my-commit`</a></li>
+</ul>
+</dd>
+<dt>Appendix/CommitHook</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=appendix-commit-hook&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#appendix-commit-hook" title="Commit Hooks">:ref:`appendix-commit-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=commit-hook&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#commit-hook" title="Commit Hooks">:ref:`commit-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=why-a-commit-msg-hook&amp;line=34">0034</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#why-a-commit-msg-hook" title="commit-msg Hook">:ref:`why-a-commit-msg-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=commit-msg-hook&amp;line=35">0035</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#commit-msg-hook" title="commit-msg Hook">:ref:`commit-msg-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=why-pre-commit-hook&amp;line=58">0058</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#why-pre-commit-hook" title="pre-commit Hook">:ref:`why-pre-commit-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=pre-commit-hook&amp;line=59">0059</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#pre-commit-hook" title="pre-commit Hook">:ref:`pre-commit-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitHook.txt?refid=post-checkout-for-composer-update&amp;line=80">0080</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitHook.html#post-checkout-for-composer-update" title="Post-checkout hook for composer install">:ref:`post-checkout-for-composer-update`</a></li>
+</ul>
+</dd>
+<dt>Appendix/CommitMessage</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/CommitMessage.txt?refid=commitmessage&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/CommitMessage.html#commitmessage" title="Commit Message rules for TYPO3 CMS">:ref:`commitmessage`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Composer</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Composer.txt?refid=composer&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Composer.html#composer" title="Composer">:ref:`composer`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Composer.txt?refid=install-composer&amp;line=47">0047</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Composer.html#install-composer" title="Install Composer">:ref:`install-composer`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Composer.txt?refid=composer-commands&amp;line=61">0061</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Composer.html#composer-commands" title="Composer Commands">:ref:`composer-commands`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Composer.txt?refid=custom-composer-commands&amp;line=74">0074</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Composer.html#custom-composer-commands" title="Custom TYPO3 Composer Commands">:ref:`custom-composer-commands`</a></li>
+</ul>
+</dd>
+<dt>Appendix/HowToDeprecateThings</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/HowToDeprecateThings.txt?refid=deprecations&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/HowToDeprecateThings.html#deprecations" title="How to deprecate classes, methods, arguments and hooks in the TYPO3 core">:ref:`deprecations`</a></li>
+</ul>
+</dd>
+<dt>Appendix/IdePhpStormGerritPlugin</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormGerritPlugin.txt?refid=phpstorm-gerritplugin&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormGerritPlugin.html#phpstorm-gerritplugin" title="PhpStorm: Gerrit Plugin">:ref:`phpstorm-gerritplugin`</a></li>
+</ul>
+</dd>
+<dt>Appendix/IdePhpStormSetup</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormSetup.txt?refid=phpstorm-setup&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormSetup.html#phpstorm-setup" title="PhpStorm: Setup">:ref:`phpstorm-setup`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormSetup.txt?refid=phpstorm-setup-cgl&amp;line=58">0058</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormSetup.html#phpstorm-setup-cgl" title="Coding Guidelines">:ref:`phpstorm-setup-cgl`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormSetup.txt?refid=phpstorm-setup-cgl-editorconfig&amp;line=66">0066</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormSetup.html#phpstorm-setup-cgl-editorconfig" title="EditorConfig">:ref:`phpstorm-setup-cgl-editorconfig`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormSetup.txt?refid=phpstorm-setup-plugins&amp;line=107">0107</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormSetup.html#phpstorm-setup-plugins" title="Plugins for PhpStorm">:ref:`phpstorm-setup-plugins`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/IdePhpStormSetup.txt?refid=phpstorm-setup-testing&amp;line=161">0161</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/IdePhpStormSetup.html#phpstorm-setup-testing" title="Setting up  PhpStorm for the Testing Framework">:ref:`phpstorm-setup-testing`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Index.txt?refid=appendix&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Index.html#appendix" title="Appendix">:ref:`appendix`</a></li>
+</ul>
+</dd>
+<dt>Appendix/SettingUpTypo3Ddev</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/SettingUpTypo3Ddev.txt?refid=ddev&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/SettingUpTypo3Ddev.html#ddev" title="Setting up TYPO3 with DDEV">:ref:`ddev`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/SettingUpTypo3Ddev.txt?refid=settting-up-typo3-with-ddev&amp;line=31">0031</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/SettingUpTypo3Ddev.html#settting-up-typo3-with-ddev" title="Setting up TYPO3 with DDEV">:ref:`settting-up-typo3-with-ddev`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/SettingUpTypo3Ddev.txt?refid=ddev-composer-install&amp;line=104">0104</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/SettingUpTypo3Ddev.html#ddev-composer-install" title="Install dependencies via composer">:ref:`ddev-composer-install`</a></li>
+</ul>
+</dd>
+<dt>Appendix/SettingUpTypo3Manually</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/SettingUpTypo3Manually.txt?refid=setting-up-typo3-manually&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/SettingUpTypo3Manually.html#setting-up-typo3-manually" title="Setting up TYPO3 manually">:ref:`setting-up-typo3-manually`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Slack</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Slack.txt?refid=appendix-slack-intro&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Slack.html#appendix-slack-intro">:ref:`... &lt;appendix-slack-intro&gt;`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Slack.txt?refid=botty&amp;line=59">0059</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Slack.html#botty" title="Botty on Slack">:ref:`botty`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Linux/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Linux/Index.txt?refid=appendix-linux&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Linux/Index.html#appendix-linux" title="Linux/Unix help">:ref:`appendix-linux`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Linux/SettingUpTypo3ManuallyLinux</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Linux/SettingUpTypo3ManuallyLinux.txt?refid=setting-up-typo3-manually-linux&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Linux/SettingUpTypo3ManuallyLinux.html#setting-up-typo3-manually-linux" title="Setting up TYPO3 manually under Linux">:ref:`setting-up-typo3-manually-linux`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Linux/SSHKeyUnix</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Linux/SSHKeyUnix.txt?refid=ssh-key-unix&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Linux/SSHKeyUnix.html#ssh-key-unix" title="Creating a SSH Public Key on Unix/Linux">:ref:`ssh-key-unix`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/GitTower</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/GitTower.txt?refid=gittower-osx&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/GitTower.html#gittower-osx" title="Working with Git Tower">:ref:`gittower-osx`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/Index.txt?refid=appendix-osx&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/Index.html#appendix-osx" title="OS X help">:ref:`appendix-osx`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/InstallComposer</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/InstallComposer.txt?refid=osx-composer&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/InstallComposer.html#osx-composer" title="COMPOSER install on OSX">:ref:`osx-composer`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/InstallGrunt</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/InstallGrunt.txt?refid=osx-grunt&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/InstallGrunt.html#osx-grunt" title="GRUNT install on OSX">:ref:`osx-grunt`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/InstallNpm</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/InstallNpm.txt?refid=osx-npm&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/InstallNpm.html#osx-npm" title="Yarn install on OSX">:ref:`osx-npm`</a></li>
+</ul>
+</dd>
+<dt>Appendix/OSX/SSHKeyOSX</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/OSX/SSHKeyOSX.txt?refid=ssh-key-osx&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/OSX/SSHKeyOSX.html#ssh-key-osx" title="Creating a SSH Public Key on OSX">:ref:`ssh-key-osx`</a></li>
+</ul>
+</dd>
+<dt>Appendix/ResourcesForEditors/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/ResourcesForEditors/Index.txt?refid=resources-for-editors&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/ResourcesForEditors/Index.html#resources-for-editors" title="Information for editing this guide">:ref:`resources-for-editors`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Windows/CloneWithSourcetree</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Windows/CloneWithSourcetree.txt?refid=windows-clonewithsourcetree&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Windows/CloneWithSourcetree.html#windows-clonewithsourcetree" title="Cloning with SourceTree on Windows">:ref:`windows-clonewithsourcetree`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Windows/GitForWindows</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Windows/GitForWindows.txt?refid=git-for-windows&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Windows/GitForWindows.html#git-for-windows" title="Working with Git for Windows">:ref:`git-for-windows`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Windows/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Windows/Index.txt?refid=appendix-windows&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Windows/Index.html#appendix-windows" title="Microsoft Windows help">:ref:`appendix-windows`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Windows/SSHKeyWindows</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Windows/SSHKeyWindows.txt?refid=ssh-key-win&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Windows/SSHKeyWindows.html#ssh-key-win" title="Creating a SSH Public Key on Windows">:ref:`ssh-key-win`</a></li>
+</ul>
+</dd>
+<dt>Appendix/Windows/Troubleshooting</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Appendix/Windows/Troubleshooting.txt?refid=troubleshooting-for-windows&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Appendix/Windows/Troubleshooting.html#troubleshooting-for-windows" title="Troubleshooting for Windows">:ref:`troubleshooting-for-windows`</a></li>
+</ul>
+</dd>
+<dt>BugfixingAZ/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=fixing-a-bug-a-z&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#fixing-a-bug-a-z" title="Create a Patch">:ref:`fixing-a-bug-a-z`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=core-contrib-quickstart&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#core-contrib-quickstart" title="Create a Patch">:ref:`core-contrib-quickstart`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=quickstart-create-a-patch&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#quickstart-create-a-patch" title="Create a Patch">:ref:`quickstart-create-a-patch`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=bugfixing-prerequisites&amp;line=55">0055</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#bugfixing-prerequisites" title="Step by Step Walkthrough">:ref:`bugfixing-prerequisites`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=bugfixing-fix-the-code&amp;line=56">0056</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#bugfixing-fix-the-code" title="Step by Step Walkthrough">:ref:`bugfixing-fix-the-code`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/BugfixingAZ/Index.txt?refid=fix-the-code&amp;line=57">0057</a><span class="e3">] </span><a class="e4 reference internal" href="BugfixingAZ/Index.html#fix-the-code" title="Step by Step Walkthrough">:ref:`fix-the-code`</a></li>
+</ul>
+</dd>
+<dt>CheatSheets/Git</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/CheatSheets/Git.txt?refid=cheat-sheet-git&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="CheatSheets/Git.html#cheat-sheet-git" title="Git Cheat Sheet">:ref:`cheat-sheet-git`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/CheatSheets/Git.txt?refid=cheat-sheet-git-clone&amp;line=41">0041</a><span class="e3">] </span><a class="e4 reference internal" href="CheatSheets/Git.html#cheat-sheet-git-clone" title="git clone">:ref:`cheat-sheet-git-clone`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/CheatSheets/Git.txt?refid=cheat-sheet-git-setup&amp;line=50">0050</a><span class="e3">] </span><a class="e4 reference internal" href="CheatSheets/Git.html#cheat-sheet-git-setup" title="Setup">:ref:`cheat-sheet-git-setup`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/CheatSheets/Git.txt?refid=git-work-in-progress&amp;line=86">0086</a><span class="e3">] </span><a class="e4 reference internal" href="CheatSheets/Git.html#git-work-in-progress" title="Workflow - work in progress">:ref:`git-work-in-progress`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/CheatSheets/Git.txt?refid=cheat-sheet-git-other-branches&amp;line=101">0101</a><span class="e3">] </span><a class="e4 reference internal" href="CheatSheets/Git.html#cheat-sheet-git-other-branches" title="Workflow -other branches">:ref:`cheat-sheet-git-other-branches`</a></li>
+</ul>
+</dd>
+<dt>Community/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Community/Index.txt?refid=introduction&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Community/Index.html#introduction" title="Help &amp; Community">:ref:`introduction`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Community/Index.txt?refid=how-to-get-help&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Community/Index.html#how-to-get-help" title="Help &amp; Community">:ref:`how-to-get-help`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Community/Index.txt?refid=community&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Community/Index.html#community" title="Help &amp; Community">:ref:`community`</a></li>
+</ul>
+</dd>
+<dt>DebuggingTypo3/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/DebuggingTypo3/Index.txt?refid=phpstorm-setup-xdebug&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="DebuggingTypo3/Index.html#phpstorm-setup-xdebug" title="Debug TYPO3">:ref:`phpstorm-setup-xdebug`</a></li>
+</ul>
+</dd>
+<dt>Forger/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Forger/Index.txt?refid=forger-index&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="Forger/Index.html#forger-index" title="Introduction to Forger">:ref:`forger-index`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/Backporting</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Backporting.txt?refid=lifeofapatch-backport&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Backporting.html#lifeofapatch-backport" title="Backport a change to other branches">:ref:`lifeofapatch-backport`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/ChangeAPatch</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/ChangeAPatch.txt?refid=lifeofapatch-improve-patch&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/ChangeAPatch.html#lifeofapatch-improve-patch" title="Upload a new Patch Set">:ref:`lifeofapatch-improve-patch`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/CherryPick</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/CherryPick.txt?refid=cherry-pick-a-patch&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/CherryPick.html#cherry-pick-a-patch" title="Cherry-pick a patch">:ref:`cherry-pick-a-patch`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/CleanupTypo3</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/CleanupTypo3.txt?refid=cleanup-tasks&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/CleanupTypo3.html#cleanup-tasks" title="Cleanup tasks">:ref:`cleanup-tasks`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/CleanupTypo3.txt?refid=gerrit-reset-to-a-clean-state&amp;line=35">0035</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/CleanupTypo3.html#gerrit-reset-to-a-clean-state" title="Cleanup git repository">:ref:`gerrit-reset-to-a-clean-state`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/CleanupTypo3.txt?refid=reset-to-a-clean-state&amp;line=36">0036</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/CleanupTypo3.html#reset-to-a-clean-state" title="Cleanup git repository">:ref:`reset-to-a-clean-state`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/CleanupTypo3.txt?refid=cleanup-typo3&amp;line=47">0047</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/CleanupTypo3.html#cleanup-typo3" title="Cleanup TYPO3 installation">:ref:`cleanup-typo3`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/FindAReview</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/FindAReview.txt?refid=find-a-review&amp;line=31">0031</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/FindAReview.html#find-a-review">:ref:`... &lt;find-a-review&gt;`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/GerritBasics</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/GerritBasics.txt?refid=working-with-gerrit&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/GerritBasics.html#working-with-gerrit" title="Introduction to Gerrit">:ref:`working-with-gerrit`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/GerritBasics.txt?refid=gerrit-overview-of-the-ui&amp;line=43">0043</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/GerritBasics.html#gerrit-overview-of-the-ui" title="Overview of the UI">:ref:`gerrit-overview-of-the-ui`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Index.txt?refid=lifeofapatch&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Index.html#lifeofapatch" title="Handle and Improve a Patch (Gerrit)">:ref:`lifeofapatch`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Index.txt?refid=improving-a-patch&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Index.html#improving-a-patch" title="Handle and Improve a Patch (Gerrit)">:ref:`improving-a-patch`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/Rebase</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=rebase&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#rebase" title="Rebase">:ref:`rebase`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=rebase-intro&amp;line=50">0050</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#rebase-intro" title="What is rebase?">:ref:`rebase-intro`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=when-should-you-rebase&amp;line=95">0095</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#when-should-you-rebase" title="When should you rebase?">:ref:`when-should-you-rebase`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=how-to-rebase&amp;line=108">0108</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#how-to-rebase" title="How do you rebase?">:ref:`how-to-rebase`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=rebase-with-gerrit-button&amp;line=118">0118</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#rebase-with-gerrit-button" title="Method 1: Use Rebase button on Gerrit">:ref:`rebase-with-gerrit-button`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Rebase.txt?refid=rebase-with-git-pull&amp;line=137">0137</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Rebase.html#rebase-with-git-pull" title="Method 2: git pull –rebase">:ref:`rebase-with-git-pull`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/ResolveMergeConflicts</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/ResolveMergeConflicts.txt?refid=resolve-merge-conflicts&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#resolve-merge-conflicts" title="Resolve Merge conflicts">:ref:`resolve-merge-conflicts`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/ResolveMergeConflicts.txt?refid=what-are-merge-conflicts&amp;line=50">0050</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#what-are-merge-conflicts" title="What are merge conflicts?">:ref:`what-are-merge-conflicts`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/ResolveMergeConflicts.txt?refid=how-to-see-merge-conflicts&amp;line=138">0138</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#how-to-see-merge-conflicts" title="How to see merge conflicts in Gerrit or Forger">:ref:`how-to-see-merge-conflicts`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/ResolveMergeConflicts.txt?refid=how-to-resolve-merge-conflicts&amp;line=168">0168</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/ResolveMergeConflicts.html#how-to-resolve-merge-conflicts" title="How to resolve conflicts?">:ref:`how-to-resolve-merge-conflicts`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/Revert</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Revert.txt?refid=lifeofapatch-reverting-patches&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Revert.html#lifeofapatch-reverting-patches" title="Revert patches">:ref:`lifeofapatch-reverting-patches`</a></li>
+</ul>
+</dd>
+<dt>HandlingAPatch/Review</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=lifeofapatch-review&amp;line=36">0036</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#lifeofapatch-review" title="Code Review">:ref:`lifeofapatch-review`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=lifeofapatch-test&amp;line=57">0057</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#lifeofapatch-test" title="Test a patch">:ref:`lifeofapatch-test`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-testing-a-change&amp;line=58">0058</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-testing-a-change" title="Test a patch">:ref:`gerrit-testing-a-change`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-commenting-files&amp;line=84">0084</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-commenting-files" title="Comment files">:ref:`gerrit-commenting-files`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-voting&amp;line=109">0109</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-voting" title="Vote">:ref:`gerrit-voting`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-policy-for-votes&amp;line=132">0132</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-policy-for-votes" title="Policy for votes">:ref:`gerrit-policy-for-votes`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-no-brainers&amp;line=156">0156</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-no-brainers" title="Low brainers">:ref:`gerrit-no-brainers`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-low-brainers&amp;line=157">0157</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-low-brainers" title="Low brainers">:ref:`gerrit-low-brainers`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingAPatch/Review.txt?refid=gerrit-practical-considerations&amp;line=166">0166</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingAPatch/Review.html#gerrit-practical-considerations" title="Practical considerations">:ref:`gerrit-practical-considerations`</a></li>
+</ul>
+</dd>
+<dt>HandlingIssues/TicketWorkflow</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/HandlingIssues/TicketWorkflow.txt?refid=issue-workflow&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="HandlingIssues/TicketWorkflow.html#issue-workflow" title="Issue Workflow (Forge)">:ref:`issue-workflow`</a></li>
+</ul>
+</dd>
+<dt>ReportingAnIssue/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=forge-index&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#forge-index" title="Report an Issue">:ref:`forge-index`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=bugreporting-index&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#bugreporting-index" title="Report an Issue">:ref:`bugreporting-index`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=forge-introduction&amp;line=34">0034</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#forge-introduction" title="Introduction to Forge">:ref:`forge-introduction`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=create-an-issue&amp;line=92">0092</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#create-an-issue" title="Create an issue">:ref:`create-an-issue`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=create-issue-files&amp;line=189">0189</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#create-issue-files" title="(optional) Files">:ref:`create-issue-files`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=best-practices-bug-report&amp;line=217">0217</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#best-practices-bug-report" title="Best practices for writing a good bug report">:ref:`best-practices-bug-report`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=formatting-in-redmine&amp;line=283">0283</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#formatting-in-redmine" title="Hints for formatting in Redmine">:ref:`formatting-in-redmine`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/ReportingAnIssue/Index.txt?refid=redmine-images&amp;line=296">0296</a><span class="e3">] </span><a class="e4 reference internal" href="ReportingAnIssue/Index.html#redmine-images" title="Images">:ref:`redmine-images`</a></li>
+</ul>
+</dd>
+<dt>Setup/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Index.txt?refid=setup&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Index.html#setup" title="Setup">:ref:`setup`</a></li>
+</ul>
+</dd>
+<dt>Setup/Prerequisites</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Prerequisites.txt?refid=prerequisites&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Prerequisites.html#prerequisites" title="Prerequisites and Useful Tools">:ref:`prerequisites`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Prerequisites.txt?refid=prerequisites-composer&amp;line=50">0050</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Prerequisites.html#prerequisites-composer" title="Composer">:ref:`prerequisites-composer`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Prerequisites.txt?refid=prerequisites-yarn&amp;line=87">0087</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Prerequisites.html#prerequisites-yarn" title="Yarn">:ref:`prerequisites-yarn`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Prerequisites.txt?refid=prerequisites-grunt&amp;line=131">0131</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Prerequisites.html#prerequisites-grunt" title="Grunt">:ref:`prerequisites-grunt`</a></li>
+</ul>
+</dd>
+<dt>Setup/SetupIde</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupIde.txt?refid=setup-ide&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupIde.html#setup-ide" title="Setup your IDE">:ref:`setup-ide`</a></li>
+</ul>
+</dd>
+<dt>Setup/SetupTypo3</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=setup-typo3&amp;line=30">0030</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#setup-typo3" title="Setup the TYPO3 installation">:ref:`setup-typo3`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=setup-typo3-git-clone&amp;line=36">0036</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#setup-typo3-git-clone" title="git clone">:ref:`setup-typo3-git-clone`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=git-clone&amp;line=37">0037</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#git-clone" title="git clone">:ref:`git-clone`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=git-guis&amp;line=46">0046</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#git-guis" title="Git GUIs">:ref:`git-guis`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=composer-install&amp;line=59">0059</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#composer-install" title="composer install">:ref:`composer-install`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=yarn-build&amp;line=82">0082</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#yarn-build" title="yarn install">:ref:`yarn-build`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=yarn-tasks&amp;line=107">0107</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#yarn-tasks" title="yarn tasks">:ref:`yarn-tasks`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/SetupTypo3.txt?refid=setup-typo3-installation&amp;line=123">0123</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/SetupTypo3.html#setup-typo3-installation" title="Setting up a Working TYPO3 Installation">:ref:`setup-typo3-installation`</a></li>
+</ul>
+</dd>
+<dt>Setup/Git/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=setting-up-your-git-environment&amp;line=29">0029</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#setting-up-your-git-environment" title="Git Setup">:ref:`setting-up-your-git-environment`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=setup-git-commit-hook&amp;line=70">0070</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#setup-git-commit-hook" title="Install Your Commit Hooks">:ref:`setup-git-commit-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=git-setup-commit-msg-hook&amp;line=71">0071</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#git-setup-commit-msg-hook" title="Install Your Commit Hooks">:ref:`git-setup-commit-msg-hook`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=git-setup-remote&amp;line=141">0141</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#git-setup-remote" title="Setting up Your Remote">:ref:`git-setup-remote`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=committemplate&amp;line=154">0154</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#committemplate" title="Setting up a Commit Message Template">:ref:`committemplate`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Setup/Git/Index.txt?refid=git-show-config&amp;line=183">0183</a><span class="e3">] </span><a class="e4 reference internal" href="Setup/Git/Index.html#git-show-config" title="Show Configuration">:ref:`git-show-config`</a></li>
+</ul>
+</dd>
+<dt>Sitemap/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Sitemap/Index.txt?refid=sitemap&amp;line=3">0003</a><span class="e3">] </span><a class="e4 reference internal" href="Sitemap/Index.html#sitemap" title="Sitemap">:ref:`sitemap`</a></li>
+</ul>
+</dd>
+<dt>Testing/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Testing/Index.txt?refid=testing&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Testing/Index.html#testing" title="Run Tests">:ref:`testing`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Testing/Index.txt?refid=testing-install-docker&amp;line=75">0075</a><span class="e3">] </span><a class="e4 reference internal" href="Testing/Index.html#testing-install-docker" title="Prerequisites">:ref:`testing-install-docker`</a></li>
+</ul>
+</dd>
+<dt>Troubleshooting/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Troubleshooting/Index.txt?refid=troubleshooting&amp;line=28">0028</a><span class="e3">] </span><a class="e4 reference internal" href="Troubleshooting/Index.html#troubleshooting" title="Troubleshooting">:ref:`troubleshooting`</a></li>
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/Troubleshooting/Index.txt?refid=git-troubleshooting&amp;line=36">0036</a><span class="e3">] </span><a class="e4 reference internal" href="Troubleshooting/Index.html#git-troubleshooting" title="Git Troubleshooting">:ref:`git-troubleshooting`</a></li>
+</ul>
+</dd>
+<dt>WorkflowExplained/Index</dt>
+<dd><ul class="first last simple">
+<li><span class="e1">[</span><a class="e2 reference internal" href="_sources/WorkflowExplained/Index.txt?refid=workflow-explained&amp;line=27">0027</a><span class="e3">] </span><a class="e4 reference internal" href="WorkflowExplained/Index.html#workflow-explained" title="TYPO3 Contribution Explained">:ref:`workflow-explained`</a></li>
+</ul>
+</dd>
+</dl>
+<p class="ref-targets-list-summary">Summary: 153 targets (151 with link text, 2 without).</p>
+</div>
+</div>
+
+
+           </div><!-- /.toBeIndexed -->
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo" class="contentinfo">
+      <p class="show_source">
+        <a href="_sources/Targets.rst.txt" rel="nofollow">
+          <span class="fa fa-binoculars"></span>&#32;View page source
+        </a>
+      </p>
+      <p class="show_copyright">
+            &copy; Copyright since 2000 by TYPO3 Association
+      </p>
+      <p class="last_updated">
+        Last rendered on Sep 27, 2019 12:18
+      </p>
+      <p class="show_sphinx">
+        Built with <a href="http://sphinx-doc.org/" target="_blank">Sphinx</a> and
+        <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd" target="_blank">t3SphinxThemeRtd.</a>
+        Report theme issues <a href="https://github.com/TYPO3-Documentation/t3SphinxThemeRtd/issues" target="_blank">here.</a>
+      </p>
+
+
+
+
+  </div>
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/jquery-ui/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="_static/js/theme.js"></script>
+      <script type="text/javascript" src="_static/js/t3autocomplete.js"></script>
+
+  
+
+  
+   
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   <script type="text/javascript" id="idPiwikScriptPlaceholder"></script></body>
+</html>
